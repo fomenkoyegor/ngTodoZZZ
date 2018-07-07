@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
 @Component({
@@ -8,9 +8,10 @@ import { Subscription } from 'rxjs';
 })
 export class UsersComponent implements OnInit, OnDestroy {
   users;
+  @Output() clearDetails = new EventEmitter();
   private usersUpdate: Subscription;
   constructor(private api: ApiService) { }
-
+  userId;
   ngOnInit() {
     this.getUsers();
     this.usersUpdate = this.api.usersUpdate.subscribe(
@@ -29,7 +30,9 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   details(id) {
-    this.api.updateNotes(id)
+    this.api.updateNotes(id);
+    this.clearDetails.emit(true);
+    this.userId = id;
   }
 
   ngOnDestroy() {

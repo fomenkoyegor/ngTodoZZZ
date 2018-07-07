@@ -1,19 +1,23 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-    <div class="users panel">
-            <app-adduser></app-adduser>
-            <app-users></app-users>
-    </div>
-    <div class="notes panel">
-        <app-addnotes></app-addnotes>
-        <app-notes (showDetails)="showDetails($event)"></app-notes>
-    </div>
-    <div class="panel">
-        <h3>details</h3>
-        <div *ngIf="note">
-            <h4>{{note.name}}</h4>
-            <p>{{note.desc}}</p>
-        </div>
-    </div>
-</div>
 
+    <div class="panel users">
+
+        <app-adduser></app-adduser>
+        <app-users (clearDetails)="clearDetails()"></app-users>
+
+    </div>
+
+    <div class="panel notes">
+        <app-addnotes></app-addnotes>
+        <app-notes (showDetails)="showDetails($event)" (clearDetails)="clearDetails()"></app-notes>
+    </div>
+
+    <div class="panel details">
+        <div *ngIf="note">
+            <div class="infoNotes">{{note.name}}</div>
+            <div class="infoDesc">{{note.desc}}</div>
+        </div>
+
+    </div>
+
+</div>

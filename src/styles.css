@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  a {
+    color: #00B7FF;
+  }
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+    background: ghostwhite;
+    display: flex;
+
+}
+
+.panel {
+    width: 30%;
+    min-height: 120px;
+    margin: 20px;
+    background: gray;
+    flex-grow: 1;
+    background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#282828;
+    background-size:16px 16px;
+
+}
+
+
+.panel .form{
+    display: flex;padding:15px;flex-wrap: wrap
+}
+.panel .form input[type='text']{
+    min-height: 50px;flex-grow: 1;
+    padding-left: 25px;font-size: 19px;
+    width: 70%;
+}
+.panel .form button{
+width: 30%;
+}
+
+
+.panel .list {
+    background: antiquewhite;
+    margin: 20px;
+    padding: 5px;
+}
+
+.panel .list .item {
+    line-height: 50px;
+    box-shadow: 0 1px 1px 0 blueviolet;
+    padding: 0 10px;
+    position: relative;
+}
+
+.list .item .delete, .list .item .details {
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+    position: absolute;
+    top: 10px;
+    cursor: pointer;
+}
+
+.list .item .delete {
+    background-image: url("assets/delete.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    right: 5px;
+    border-radius: 50%;
+    background-position: center;
+}
+
+.list .item .details {
+    background-image: url("assets/details.png");
+    background-size: cover;
+    right: 40px;
+    border-radius: 50%;
+
+}
+
+.list .item .delete:hover, .list .item .details:hover {
+    opacity: 1;
+    background-color: red;
+
+}
+.list .item.active .details{
+    background-color: blue;opacity: 1;
+}
+.list .item.activeNotes .details{
+    background-color: rgb(24, 245, 24);opacity: 1;
+}
+
+.details{
+    padding: 15px;
+}
+.details .infoNotes{
+    height: 50px;background: #fff;width: 100%;text-align: center;
+}
+.details .infoDesc{
+    background: #fff;width: 100%;min-height: 50px;margin-top: 5px;
+}
+
+

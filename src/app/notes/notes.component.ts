@@ -9,7 +9,9 @@ import { ApiService } from '../api.service';
 })
 export class NotesComponent implements OnInit, OnDestroy {
   notes;
+  noteId;
   @Output() showDetails = new EventEmitter();
+  @Output() clearDetails = new EventEmitter();
   private notesUpdate: Subscription;
 
   constructor(private api: ApiService) { }
@@ -29,9 +31,11 @@ export class NotesComponent implements OnInit, OnDestroy {
 
   delNote(id) {
     this.api.delNote(id);
+    this.clearDetails.emit(true);
   }
   details(note) {
     this.showDetails.emit(note);
+    this.noteId = note.id;
   }
 
   ngOnDestroy() {

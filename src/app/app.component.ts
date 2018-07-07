@@ -10,4 +10,8 @@ export class AppComponent {
   showDetails(note){
     this.note = note;
   }
+
+  clearDetails(){
+    this.note = '';
+  }
 }

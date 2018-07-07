@@ -1,7 +1,7 @@
-<ul>
-  <li *ngFor="let user of users">
+<div class="list">
+  <div class="item" *ngFor="let user of users" [class.active]="userId===user.id">
     <span>{{user.name}}</span>
-    <button (click)="delUser(user.id)">delUser</button>
-    <button (click)="details(user.id)">details</button>
-  </li>
-</ul>
+    <div class="delete" (click)="delUser(user.id)"></div>
+    <div class="details" (click)="details(user.id)"></div>
+  </div>
+</div>

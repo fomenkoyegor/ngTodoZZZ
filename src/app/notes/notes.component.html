@@ -1,9 +1,7 @@
-<div *ngIf="notes">
-  <ul>
-    <li *ngFor="let note of notes.reverse()">
-      <span>{{note.name}}</span>
-      <button (click)="delNote(note.id)">delNote</button>
-      <button (click)="details(note)">details</button>
-    </li>
-  </ul>
+<div class="list" *ngIf="notes">
+  <div class="item" *ngFor="let note of notes.reverse()" [class.active]="noteId===note.id">
+    <span>{{note.name}}</span>
+    <div class="delete" (click)="delNote(note.id)"></div>
+    <div class="details" (click)="details(note)"></div>
+  </div>
 </div>

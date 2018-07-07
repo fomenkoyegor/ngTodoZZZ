@@ -1,6 +1,7 @@
-<div >
-  <input type="text" id="name" placeholder="note {{userId}}" [(ngModel)]="name">
-  <input type="text" id="desc" [(ngModel)]="desc">
+<div class="form">
+  <input type="text" id="name" placeholder="note {{userId}}" [(ngModel)]="name" [disabled]="!userId">
+  <input type="text" id="desc" [(ngModel)]="desc" [disabled]="!userId">
   <button [disabled]="!userId || !name || !desc" (click)="addNote()">addNote</button>
-  <hr>
 </div>
+
+
