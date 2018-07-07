@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let user of users">
+    <span>{{user.name}}</span>
+    <button (click)="delUser(user.id)">delUser</button>
+    <button (click)="details(user.id)">details</button>
+  </li>
+</ul>
